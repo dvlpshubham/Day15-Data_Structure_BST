@@ -1,10 +1,7 @@
-/*@Purpose:: Ability to create a BST by adding 56 and then
- *           adding 30 & 70 - Use INode to create My Binary
- *           Node - Note the key has to extend comparable to
- *           compare and determine left or right node
- * - First add 56 as root node so 30 will be added to left and 70 to right
- * @File  ::Binary Search Tree
- * @Author::Shubham Raj
+/*@Purpose : Ability to search 63 in the Binary Tree
+ *         - Implement Search method and recursively search left or right nodes to find 63
+ * @File : Binary Search Tree
+ * @Author: Shubham Raj
  */
 
 package com.bridgelabz.dsagenerics;
@@ -84,5 +81,29 @@ public class BST {
     public int size() {
         return size;
     }
+    /*
+     * @Purpose : Search Element In BST
+     *
+     * @Return : Boolean,IsPresent
+     */
 
+    public boolean search(Node node, int data) {
+        if (node == null) {
+            return false;
+        }
+
+        boolean isPresent = false;
+        while (node != null) {
+            if (data < node.data) {
+                node = node.left;
+            } else if (data > node.data) {
+                node = node.right;
+            } else {
+                isPresent = true;
+                break;
+            }
+        }
+
+        return isPresent;
+    }
 }
